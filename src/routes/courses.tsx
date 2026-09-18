@@ -71,11 +71,12 @@ function Courses() {
             digital learning content.
           </li>
           <li>
-            <strong className="text-foreground">Access:</strong> [ADD ACCESS INFORMATION] — how and
-            when students receive access after purchase.
+            <strong className="text-foreground">Access:</strong> your access link is sent to your
+            purchase email after payment is confirmed — normally within minutes, always within 24
+            hours. Each course includes 12 months of access.
           </li>
           <li>
-            <strong className="text-foreground">Customer support:</strong> {SUPPORT_EMAIL_PLACEHOLDER}
+            <strong className="text-foreground">Customer support:</strong> {SUPPORT_EMAIL}
           </li>
           <li>
             <strong className="text-foreground">Refunds:</strong>{" "}
@@ -87,10 +88,14 @@ function Courses() {
         </ul>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <Button asChild size="lg" className="min-h-12">
-            <Link to="/private-lessons">Book a Private Lesson</Link>
+            <a href={BOOK_LESSON_LINK} target="_blank" rel="noopener noreferrer">
+              Book a Private Lesson
+            </a>
           </Button>
           <Button asChild size="lg" variant="outline" className="min-h-12 bg-background">
-            <Link to="/contact">Ask About a Course</Link>
+            <a href={COURSES_WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+              Ask About a Course
+            </a>
           </Button>
         </div>
       </Section>
