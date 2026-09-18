@@ -1,5 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { legalItems, navItems, SUPPORT_EMAIL_PLACEHOLDER, TAGLINE } from "@/content/site";
+import {
+  CONTACT_WHATSAPP_LINK,
+  legalItems,
+  navItems,
+  SUPPORT_EMAIL,
+  TAGLINE,
+  WHATSAPP_DISPLAY,
+} from "@/content/site";
 
 export function Footer() {
   return (
@@ -11,7 +18,21 @@ export function Footer() {
           <p className="mt-6 text-xs uppercase tracking-widest text-primary-foreground/50">
             Customer Support
           </p>
-          <p className="mt-1 text-sm text-primary-foreground/80">{SUPPORT_EMAIL_PLACEHOLDER}</p>
+          <p className="mt-1 text-sm text-primary-foreground/80">
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="underline-offset-4 hover:underline">
+              {SUPPORT_EMAIL}
+            </a>
+          </p>
+          <p className="mt-1 text-sm text-primary-foreground/80">
+            <a
+              href={CONTACT_WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline-offset-4 hover:underline"
+            >
+              WhatsApp {WHATSAPP_DISPLAY}
+            </a>
+          </p>
         </div>
 
         <nav aria-label="Footer navigation">
