@@ -2,7 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { CourseCard } from "@/components/site/CourseCard";
 import { PlaceholderNote, Section, SectionHeading } from "@/components/site/primitives";
-import { courses, PAYMENT_LINK_PLACEHOLDER, SUPPORT_EMAIL_PLACEHOLDER } from "@/content/site";
+import {
+  BOOK_LESSON_LINK,
+  COURSES_WHATSAPP_LINK,
+  courses,
+  SUPPORT_EMAIL,
+} from "@/content/site";
 
 export const Route = createFileRoute("/courses")({
   head: () => ({
@@ -38,13 +43,11 @@ function Courses() {
           title="Online Portuguese Courses"
           description="Structured online Portuguese courses designed to help you build practical Brazilian Portuguese skills at your own pace."
         />
-        <div className="mt-6 max-w-2xl">
-          <PlaceholderNote>
-            These courses are editable product placeholders. Course level, format, inclusions, price,
-            currency, and access information must be completed before they are sold. Payment link:{" "}
-            <strong>{PAYMENT_LINK_PLACEHOLDER}</strong>
-          </PlaceholderNote>
-        </div>
+        <p className="mt-6 max-w-2xl text-sm text-muted-foreground">
+          Every course shows its level, format, price in US dollars, what is included, and how access
+          works. To enroll, send a message on WhatsApp and you receive the payment link and your
+          course access.
+        </p>
       </Section>
 
       <Section>
