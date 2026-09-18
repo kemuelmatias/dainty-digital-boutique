@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { CourseCard } from "@/components/site/CourseCard";
-import { PlaceholderNote, Section, SectionHeading } from "@/components/site/primitives";
+import { Section, SectionHeading } from "@/components/site/primitives";
 import {
   BOOK_LESSON_LINK,
   COURSES_WHATSAPP_LINK,

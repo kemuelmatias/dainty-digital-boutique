@@ -1,14 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PlaceholderNote, Section, SectionHeading } from "@/components/site/primitives";
+import { Section, SectionHeading } from "@/components/site/primitives";
 import { StudentExperiences } from "@/components/site/StudentExperiences";
 import {
+  BOOK_LESSON_LINK,
   lessonInformation,
   lessonTopics,
-  PAYMENT_LINK_PLACEHOLDER,
   steps,
-  SUPPORT_EMAIL_PLACEHOLDER,
+  SUPPORT_EMAIL,
+  WHATSAPP_DISPLAY,
 } from "@/content/site";
 
 export const Route = createFileRoute("/private-lessons")({
