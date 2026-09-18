@@ -59,18 +59,19 @@ function PrivateLessons() {
           description="Personalized one-on-one online lessons designed around your level, goals, and learning pace."
         />
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Button size="lg" className="min-h-12" disabled title="Booking link not configured yet">
-            Book a Private Lesson
+          <Button asChild size="lg" className="min-h-12">
+            <a href={BOOK_LESSON_LINK} target="_blank" rel="noopener noreferrer">
+              Book a Private Lesson
+            </a>
           </Button>
           <Button asChild size="lg" variant="outline" className="min-h-12 bg-background">
             <Link to="/contact">Ask a Question</Link>
           </Button>
         </div>
-        <div className="mt-6 max-w-xl">
-          <PlaceholderNote>
-            Booking / payment link: <strong>{PAYMENT_LINK_PLACEHOLDER}</strong>
-          </PlaceholderNote>
-        </div>
+        <p className="mt-6 max-w-xl text-sm text-muted-foreground">
+          USD 20 per 50-minute lesson · packages from USD 18 per lesson · booking on WhatsApp{" "}
+          {WHATSAPP_DISPLAY}
+        </p>
       </Section>
 
       <Section>
