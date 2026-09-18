@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Course } from "@/content/site";
-import { PAYMENT_LINK_PLACEHOLDER, SUPPORT_EMAIL_PLACEHOLDER } from "@/content/site";
+import { SUPPORT_EMAIL, whatsappLink, WHATSAPP_MESSAGES } from "@/content/site";
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
@@ -29,7 +29,7 @@ export function CourseCard({ course, detailed = false }: { course: Course; detai
         <Row label="Currency" value={course.currency} />
         <Row label="Access" value={course.access} />
         {detailed ? <Row label="Delivery" value="Online — digital course access" /> : null}
-        {detailed ? <Row label="Support" value={SUPPORT_EMAIL_PLACEHOLDER} /> : null}
+        {detailed ? <Row label="Support" value={SUPPORT_EMAIL} /> : null}
       </dl>
 
       <div className="mt-5">
@@ -44,14 +44,20 @@ export function CourseCard({ course, detailed = false }: { course: Course; detai
         </ul>
       </div>
 
-      <div className="mt-6 flex flex-col gap-2 pt-2">
+      <div className="mt-auto flex flex-col gap-2 pt-6">
         {detailed ? (
           <>
-            <Button className="min-h-11 w-full" disabled title="Payment link not configured yet">
-              Purchase Course
+            <Button asChild className="min-h-11 w-full">
+              <a
+                href={whatsappLink(WHATSAPP_MESSAGES.course(course.title, course.price))}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Purchase Course
+              </a>
             </Button>
             <p className="text-xs text-muted-foreground">
-              Payment link: <span className="font-medium text-foreground">{PAYMENT_LINK_PLACEHOLDER}</span>
+              Purchases are arranged on WhatsApp — you receive the payment link and your course access.
             </p>
           </>
         ) : (

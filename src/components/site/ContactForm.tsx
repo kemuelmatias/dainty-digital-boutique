@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { SUPPORT_EMAIL_PLACEHOLDER } from "@/content/site";
+import { SUPPORT_EMAIL, WHATSAPP_DISPLAY } from "@/content/site";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -16,7 +16,7 @@ export function ContactForm() {
         event.preventDefault();
         setSent(true);
         toast.success("Message ready to send", {
-          description: `Email delivery is not connected yet. Please also write to ${SUPPORT_EMAIL_PLACEHOLDER}.`,
+          description: `For the fastest reply, write to ${SUPPORT_EMAIL} or message ${WHATSAPP_DISPLAY} on WhatsApp.`,
         });
       }}
     >
@@ -44,8 +44,8 @@ export function ContactForm() {
       </Button>
       <p aria-live="polite" className="text-sm text-muted-foreground">
         {sent
-          ? "Thank you. Message delivery is not connected yet — please also contact the support email below."
-          : "Form submissions are not connected to an email service yet."}
+          ? `Thank you! For the fastest reply, write to ${SUPPORT_EMAIL} or send a WhatsApp message to ${WHATSAPP_DISPLAY}.`
+          : `Prefer a faster answer? Write to ${SUPPORT_EMAIL} or message ${WHATSAPP_DISPLAY} on WhatsApp.`}
       </p>
     </form>
   );

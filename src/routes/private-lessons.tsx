@@ -1,14 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PlaceholderNote, Section, SectionHeading } from "@/components/site/primitives";
+import { Section, SectionHeading } from "@/components/site/primitives";
 import { StudentExperiences } from "@/components/site/StudentExperiences";
 import {
+  BOOK_LESSON_LINK,
   lessonInformation,
   lessonTopics,
-  PAYMENT_LINK_PLACEHOLDER,
   steps,
-  SUPPORT_EMAIL_PLACEHOLDER,
+  SUPPORT_EMAIL,
+  WHATSAPP_DISPLAY,
 } from "@/content/site";
 
 export const Route = createFileRoute("/private-lessons")({
@@ -58,18 +59,19 @@ function PrivateLessons() {
           description="Personalized one-on-one online lessons designed around your level, goals, and learning pace."
         />
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Button size="lg" className="min-h-12" disabled title="Booking link not configured yet">
-            Book a Private Lesson
+          <Button asChild size="lg" className="min-h-12">
+            <a href={BOOK_LESSON_LINK} target="_blank" rel="noopener noreferrer">
+              Book a Private Lesson
+            </a>
           </Button>
           <Button asChild size="lg" variant="outline" className="min-h-12 bg-background">
             <Link to="/contact">Ask a Question</Link>
           </Button>
         </div>
-        <div className="mt-6 max-w-xl">
-          <PlaceholderNote>
-            Booking / payment link: <strong>{PAYMENT_LINK_PLACEHOLDER}</strong>
-          </PlaceholderNote>
-        </div>
+        <p className="mt-6 max-w-xl text-sm text-muted-foreground">
+          USD 20 per 50-minute lesson · packages from USD 18 per lesson · booking on WhatsApp{" "}
+          {WHATSAPP_DISPLAY}
+        </p>
       </Section>
 
       <Section>
@@ -106,18 +108,17 @@ function PrivateLessons() {
             </li>
           ))}
         </ol>
-        <div className="mt-8 max-w-2xl">
-          <PlaceholderNote>
-            Scheduling and lesson-delivery details: [ADD ACTUAL SCHEDULING PROCESS], [ADD ACTUAL
-            PLATFORM], and how lesson times are agreed and confirmed.
-          </PlaceholderNote>
-        </div>
+        <p className="mt-8 max-w-2xl text-sm text-muted-foreground">
+          Lessons take place on Google Meet or Zoom. You send your time zone and preferred days on
+          WhatsApp, we agree on a time together, and you receive a written confirmation with the
+          meeting link before the lesson.
+        </p>
       </Section>
 
       <Section>
         <SectionHeading
           title="Lesson Information"
-          description="Complete commercial information for private lessons. Bracketed values must be replaced with the real details before selling."
+          description="Complete commercial information for private lessons: duration, prices, currency, platform, scheduling and support."
         />
         <dl className="mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
           {lessonInformation.map((row) => (
@@ -136,15 +137,18 @@ function PrivateLessons() {
           </div>
         </dl>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Button size="lg" className="min-h-12" disabled title="Booking link not configured yet">
-            Book a Private Lesson
+          <Button asChild size="lg" className="min-h-12">
+            <a href={BOOK_LESSON_LINK} target="_blank" rel="noopener noreferrer">
+              Book a Private Lesson
+            </a>
           </Button>
           <Button asChild size="lg" variant="outline" className="min-h-12">
             <Link to="/faq">Read the FAQ</Link>
           </Button>
         </div>
         <p className="mt-4 text-sm text-muted-foreground">
-          Questions before booking? Write to {SUPPORT_EMAIL_PLACEHOLDER}.
+          Questions before booking? Write to {SUPPORT_EMAIL} or message {WHATSAPP_DISPLAY} on
+          WhatsApp.
         </p>
       </Section>
 
